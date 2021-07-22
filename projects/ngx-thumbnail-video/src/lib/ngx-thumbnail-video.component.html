@@ -10,5 +10,5 @@
   </div>
   <ngx-video-controls *ngIf="videoLoaded" [class.active]="onHover || showActions" [target]="vp"
     (stateChange)="actionOnVideo($event)" (pbOnHover)="onPbHovered($event)" [thumb]="thumb"
-    (nonControlAreaClicked)="actionOnVideo()"></ngx-video-controls>
+    (nonControlAreaClicked)="actionOnVideo()" [thumbnailRatio]="options?.thumbnailRatio || 5"></ngx-video-controls>
 </div>

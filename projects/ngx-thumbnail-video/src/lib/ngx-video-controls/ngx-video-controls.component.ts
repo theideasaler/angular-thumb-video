@@ -1,4 +1,3 @@
-
 import {
   Component,
   ElementRef,
@@ -21,7 +20,10 @@ import { COMPONENT_WITH_ON_HOVER } from '../directives/ngx-on-hover.directive';
   templateUrl: './ngx-video-controls.component.html',
   styleUrls: ['./ngx-video-controls.component.scss'],
   providers: [
-    { provide: COMPONENT_WITH_ON_HOVER, useExisting: NgxVideoControlsComponent },
+    {
+      provide: COMPONENT_WITH_ON_HOVER,
+      useExisting: NgxVideoControlsComponent,
+    },
   ],
 })
 export class NgxVideoControlsComponent implements OnInit, OnChanges {
@@ -30,6 +32,7 @@ export class NgxVideoControlsComponent implements OnInit, OnChanges {
   @Output() nonControlAreaClicked = new EventEmitter();
   @Input() target!: ElementRef<any>;
   @Input() thumb: any = {};
+  @Input() thumbnailRatio: number = 5;
   @ViewChild('tooltip') tooltip!: MatTooltip;
   @ViewChild('progressBar') pb!: ElementRef;
   onHover = false;
@@ -130,7 +133,9 @@ export class NgxVideoControlsComponent implements OnInit, OnChanges {
     this.elRef.nativeElement.style.setProperty(
       '--thumbHeight',
       this.target?.nativeElement?.offsetHeight
-        ? (this.target?.nativeElement?.offsetHeight ?? 0) / 5 + 'px'
+        ? (this.target?.nativeElement?.offsetHeight ?? 0) /
+            (this.thumbnailRatio || 5) +
+            'px'
         : '10rem'
     );
   }
