@@ -11,7 +11,8 @@
     "publish": "cd ./dist/ngx-thumbnail-video && npm publish",
     "pack": "cd ./dist/ngx-thumbnail-video && npm pack"
   },
-  "private": false,
+  "private": true,
+  "license" : "MIT",
   "dependencies": {
     "@angular/animations": "~12.0.1",
     "@angular/cdk": "^12.1.2",

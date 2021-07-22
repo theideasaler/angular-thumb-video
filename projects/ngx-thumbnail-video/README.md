@@ -1,6 +1,7 @@
 # Angular Video Thumbnail Player
 
 A simple solution implemented in Angular to display a thumbnail preiview image on video's progress bar hovered. The component can load thumbnail image from either frontend or backend.
+<img src="https://github.com/theideasaler/video-system/blob/main/apps/vsapp/src/assets/statics/ngx-thumbnail-video.gif" />
 
 ## Installation
 
