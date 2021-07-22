@@ -1,11 +1,16 @@
 {
   "name": "ngx-thumbnail-video",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "peerDependencies": {
     "@angular/common": "^12.0.5",
     "@angular/core": "^12.0.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theideasaler/angular-thumb-video.git"
+  },
   "dependencies": {
-    "tslib": "^2.1.0"
+    "tslib": "^2.1.0",
+    "moment": "^2.29.1"
   }
 }

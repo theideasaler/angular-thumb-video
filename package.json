@@ -8,6 +8,7 @@
     "build:prod": "ng build ngx-thumbnail-video --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "publish": "cd ./dist/ngx-thumbnail-video && npm publish",
     "pack": "cd ./dist/ngx-thumbnail-video && npm pack"
   },
   "private": false,

@@ -3,7 +3,7 @@ export interface VideoPlayerConfig {
   width?: string;
   /** Default height, by default is '540px' */
   height?: string;
-  /** Auto play video on load, by default is false */
+  /** Autoplay video on load, by default is false */
   autoplay?: boolean;
   /** Preload thumbnail at front end, by default is true */
   frontendPreload?: boolean;
