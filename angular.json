@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-thumbnail-video": {
+      "projectType": "library",
+      "root": "projects/ngx-thumbnail-video",
+      "sourceRoot": "projects/ngx-thumbnail-video/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-thumbnail-video/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-thumbnail-video/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-thumbnail-video/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-thumbnail-video/src/test.ts",
+            "tsConfig": "projects/ngx-thumbnail-video/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-thumbnail-video/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-thumbnail-video"
 }

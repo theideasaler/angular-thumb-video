@@ -1,0 +1,14 @@
+<div class="video-container" *ngIf="url" ngxOnHover [ngStyle]="{ height: options.height, width: options.width }">
+  <video #videoPlayer [width]="options.width" [height]="options.height" (click)="actionOnVideo()"
+    (loadeddata)="onDataLoaded()" [volume]="0">
+    <source [src]="url" type="video/mp4" />
+  </video>
+  <div class="screen-actions flex-center" *ngIf="videoLoaded && showActions" (click)="actionOnVideo(true)">
+    <mat-icon>{{
+      vp?.nativeElement?.ended ? 'replay' : 'play_arrow'
+      }}</mat-icon>
+  </div>
+  <ngx-video-controls *ngIf="videoLoaded" [class.active]="onHover || showActions" [target]="vp"
+    (stateChange)="actionOnVideo($event)" (pbOnHover)="onPbHovered($event)" [thumb]="thumb"
+    (nonControlAreaClicked)="actionOnVideo()"></ngx-video-controls>
+</div>

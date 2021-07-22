@@ -1,0 +1,74 @@
+// global styles
+$root-font-size: 10px;
+$body-bg-color: #f9f9f9;
+$app-bg-color: #ffffff;
+
+//progress bar styles
+$progress-bar-height: 0.5rem;
+$crtls-height: 4.5rem;
+$tooltip-height: 2.5rem;
+$general-transition-time: 500ms;
+$thumb-height: 10rem;
+
+@mixin full-size {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hover-pointer {
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+  }
+}
+
+@mixin padding-0-1rem {
+  & > * {
+    padding: 0 1rem;
+  }
+}
+
+@mixin dash-border-box {
+  border: dashed 1px #979797;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+@mixin mat-slider-colors($thumb-color, $bar-color) {
+  .mat-slider-thumb,
+  .mat-slider-track-fill {
+    border-color: $thumb-color !important;
+    background-color: $thumb-color !important;
+  }
+  .mat-slider-track-background {
+    background-color: $bar-color !important;
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.c-pointer {
+  @include hover-pointer;
+}

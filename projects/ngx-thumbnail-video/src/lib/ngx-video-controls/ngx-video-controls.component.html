@@ -1,0 +1,36 @@
+<div class="custom-controls" (click)="$event.stopPropagation();">
+    <div class="progress-bar" #progressBar ngxOnHover (mousemove)="onMouseMove($event)"
+        (click)="onProgressbarClick($event)">
+        <div class="bar" [style.width]="barLength"></div>
+        <div [class.active]="onHover" class="tooltip thumb" [style.left]="mouseLeft" [style.display-none]="!onHover">
+            <img *ngIf="thumb && thumb.url; else loading" [src]="thumb.url">
+        </div>
+        <span [class.active]="onHover" class="tooltip" [style.left]="barLength"
+            [style.display-none]="!onHover">{{currentTime}}</span>
+        <span [class.active]="onHover" class="tooltip" [style.left]="mouseLeft"
+            [style.display-none]="!onHover">{{mouseTime}}</span>
+    </div>
+    <div class="crtl-buttons flex-start">
+        <div class="play-pause-btns flex-center">
+            <mat-icon (click)="stateChange.emit(!target?.nativeElement?.paused)">
+                {{target?.nativeElement?.paused ? 'play_arrow' : 'pause'}}
+            </mat-icon>
+        </div>
+        <div class="time-info flex-center">
+            <span>{{currentTime}}</span><span>/</span><span>{{totalTime}}</span>
+        </div>
+        <div class="volume-info flex-center">
+            <mat-icon (click)="setVolume()">
+                {{target?.nativeElement?.muted ? 'volume_off' : 'volume_up'}}
+            </mat-icon>
+            <mat-slider [min]="0" [max]="100" [value]="(target.nativeElement.volume?? 0) * 100"
+                (input)="setVolume($event)"></mat-slider>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="loading flex-center">
+        <mat-icon>autorenew</mat-icon>
+    </div>
+</ng-template>

@@ -1,0 +1,41 @@
+@import '../../style.scss';
+
+:host {
+  --border-radius: 0;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  &,
+  .video-container {
+    max-width: 100%;
+  }
+}
+
+video {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+
+.video-container {
+  position: relative;
+}
+
+.screen-actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - #{$progress-bar-height + $crtls-height});
+  background-color: rgba(0, 0, 0, 0.25);
+
+  mat-icon {
+    transform: translateY($progress-bar-height * 3);
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.75);
+    height: auto;
+    width: auto;
+    @include hover-pointer;
+  }
+}

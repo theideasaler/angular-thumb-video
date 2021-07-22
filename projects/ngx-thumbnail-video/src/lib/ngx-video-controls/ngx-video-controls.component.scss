@@ -1,0 +1,126 @@
+@import '../../../style.scss';
+
+:host {
+  --widthRatio: 1.77;
+  --thumbHeight: $thumb-height;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: calc(
+    #{$progress-bar-height} + #{$crtls-height} + #{$tooltip-height} + var(--thumbHeight)
+  );
+  overflow: hidden;
+
+  .custom-controls {
+    transform: translateY($crtls-height);
+    transition: $general-transition-time;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &.active {
+    .custom-controls {
+      transform: translateY(0);
+    }
+  }
+}
+
+::ng-deep .volume-info {
+  :first-child {
+    margin-right: 5px;
+  }
+  @include mat-slider-colors(#fff, rgba(192, 192, 192, 0.35));
+}
+
+.progress-bar {
+  position: relative;
+  height: $progress-bar-height;
+  background-color: rgba(192, 192, 192, 0.35);
+  transition: $general-transition-time;
+  @include hover-pointer;
+  .bar {
+    height: $progress-bar-height;
+    background-color: rgba(255, 0, 0, 0.6);
+    position: absolute;
+    width: 0;
+    top: 0;
+    left: 0;
+    text-align: right;
+  }
+}
+
+.crtl-buttons {
+  height: $crtls-height;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  @include padding-0-1rem;
+  mat-icon {
+    @include hover-pointer;
+  }
+  .time-info {
+    :nth-child(2) {
+      padding: 0 0.5rem;
+    }
+  }
+  .volume-info {
+    mat-slider {
+      width: 25%;
+    }
+  }
+}
+
+.tooltip {
+  display: inline-block;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  background: rgba(83, 83, 83, 0.75);
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%) scale(0.2);
+  opacity: 0;
+  transform-origin: center;
+  max-height: $tooltip-height;
+  transition: transform $general-transition-time * 0.5;
+  visibility: hidden;
+  top: 0;
+  &.active {
+    transform: translateX(-50%) translateY(-100%) scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  &.thumb {
+    height: var(--thumbHeight);
+    max-height: var(--thumbHeight);
+    width: calc(var(--thumbHeight) * var(--widthRatio));
+    max-width: calc(var(--thumbHeight) * var(--widthRatio));
+    padding: 0.5rem;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  @include full-size;
+  mat-icon {
+    height: auto;
+    width: auto;
+    font-size: 4rem;
+    opacity: 0.5;
+    animation-duration: 4s;
+    animation: rotating 4s linear infinite;
+  }
+}
