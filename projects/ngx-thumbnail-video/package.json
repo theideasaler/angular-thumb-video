@@ -1,6 +1,7 @@
 {
   "name": "ngx-thumbnail-video",
-  "version": "0.0.6",
+  "author": "Neo Liu",
+  "version": "0.0.9",
   "peerDependencies": {
     "@angular/common": "^12.0.5",
     "@angular/core": "^12.0.5"
@@ -10,6 +11,10 @@
     "type": "git",
     "url": "https://github.com/theideasaler/angular-thumb-video.git"
   },
+  "bugs": {
+    "url": "https://github.com/theideasaler/angular-thumb-video/issues"
+  },
+  "keywords": ["angular", "javascript", "thumbnail", "preview", "video"],
   "dependencies": {
     "tslib": "^2.1.0",
     "moment": "^2.29.1"
