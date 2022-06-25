@@ -1,7 +1,7 @@
 {
   "name": "ngx-thumbnail-video",
   "author": "Neo Liu",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "peerDependencies": {
     "@angular/common": "^12.0.5",
     "@angular/core": "^12.0.5"

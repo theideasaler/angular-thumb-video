@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build ngx-thumbnail-video --prod",
+    "build:prod": "ng build ngx-thumbnail-video",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "publish": "cd ./dist/ngx-thumbnail-video && npm publish",
